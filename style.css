@@ -1,0 +1,180 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100vh; /* Set the container height to fill the viewport */
+    overflow: hidden; /* Prevent overflow outside the container */
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #007bffe6; /* A blue color reminiscent of a hospital */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar-right {
+    background-color: #009BFF; /* Lighter or different shade of blue for contrast */
+    color: white; /* Keeping text color consistent with the left sidebar */
+    border-left:  #006FCC; /* Add a border for visual separation if desired */
+     /* Adjust padding for content inside the right sidebar */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* This helps in structuring the nav and potentially a footer or other elements */
+}
+
+.sidebar, .sidebar-right {
+    flex-shrink: 0; /* Prevents the sidebars from shrinking */
+    width: 250px; /* Example fixed width for sidebars */
+}
+
+.user-icon {
+    padding: 20px;
+    text-align: center;
+    font-size: 5px;
+}
+
+.user-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+.sidebar-nav a.button {
+    display: block;
+    background-color: #0056b3;
+    color: white;
+    padding: 10px;
+    width: 150px;
+    margin: 5px auto;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.sidebar-nav a.button:hover {
+    background-color: #003d7a;
+}
+
+.sidebar-footer a.logout-link {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: small;
+    text-align: center;
+}
+
+.sidebar-footer a.logout-link:hover {
+    text-decoration: underline;
+}
+
+
+.content {
+    margin-top: 50px;
+    flex-grow: 1;
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 20px;
+    max-height: 100vh; /* Ensure content area does not exceed viewport height */
+}
+
+.employee-box {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    /* Add any additional styling for each employee box */
+}
+
+.employee-box h2 {
+    margin-top: 0; /* Adjusts spacing at the top of the box */
+    color: #333; /* Dark color for the name for better readability */
+}
+
+.employee-box p {
+    margin: 10px 0; /* Adds space around the paragraphs for better readability */
+    color: #666; /* Lighter text color for the details */
+}
+
+.employee-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.patient-box {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    /* Add any additional styling for each employee box */
+}
+
+.patient-box h2 {
+    margin-top: 0; /* Adjusts spacing at the top of the box */
+    color: #333; /* Dark color for the name for better readability */
+}
+
+.patient-box p {
+    margin: 10px 0; /* Adds space around the paragraphs for better readability */
+    color: #666; /* Lighter text color for the details */
+}
+
+.patient-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.availability-box {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    /* Add any additional styling for each employee box */
+}
+
+.availability-box h2 {
+    margin-top: 0; /* Adjusts spacing at the top of the box */
+    color: #333; /* Dark color for the name for better readability */
+}
+
+.availability-box p {
+    margin: 10px 0; /* Adds space around the paragraphs for better readability */
+    color: #666; /* Lighter text color for the details */
+}
+
+.availability-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn {
+    padding: 10px 15px;
+    margin-left: 10px; /* Space between buttons */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.update-btn {
+    background-color: #4ca2af9c; /* Green */
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.delete-btn {
+    background-color: #9d2921b3; /* Red */
+    color: white;
+    font-size: 16px;
+}
