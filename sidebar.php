@@ -18,7 +18,7 @@
             <a href="view_Patient.php" class="button">View Patient</a>
             <a href="View_Bookings.php" class="button">Bookings</a>
             <a href="index.php" class="button">Profile</a>
-            <a href="log_out.php" class="button">Log Out</a>
+            
         </nav>
         <footer class="sidebar-footer">
             <small><a href="log_out.php" class="logout-link">Log Out</a></small>

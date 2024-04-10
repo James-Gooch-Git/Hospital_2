@@ -178,3 +178,71 @@ body, html {
     color: white;
     font-size: 16px;
 }
+
+/* Existing styles */
+/* Add or ensure these styles for body and login-page are defined as you need them */
+body, .login-page {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #002244; /* Adjust the background color as needed */
+}
+
+.login-container, .index-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.login-box, .index-box {
+    background-color: #007bff; /* Adjust the login box background color as needed */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 60%; /* Adjust the width as needed */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* New styles */
+.split-view {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.vertical-line {
+    border-left: 2px solid #ffffff;
+    height: 100px;
+}
+
+.btn {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #004c8c;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #003d7a;
+}
+
+
+  
+
+.signup-btn {
+    background-color: #007bff; /* Different background color for the sign-up button */
+}
+
+.signup-btn:hover {
+    background-color: #0056b3; /* Darker shade on hover for the sign-up button */
+}
+
+
