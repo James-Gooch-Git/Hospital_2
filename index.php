@@ -25,8 +25,8 @@ if (isset($_SESSION["user_ID"])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class = "index-container">
-    <div class= "index-box">
+<div class = "login-page">
+    <div>
             <?php if (isset($user)): ?>
                 <?php include 'sidebar.php'; ?>
                 <p>Hello <?= htmlspecialchars($user["fName"]) ?></p>
@@ -47,7 +47,7 @@ if (isset($_SESSION["user_ID"])) {
         
     
     </div>
-            </div>
+</div>
   
 
 </body>

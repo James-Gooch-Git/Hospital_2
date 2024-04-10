@@ -181,7 +181,7 @@ body, html {
 
 /* Existing styles */
 /* Add or ensure these styles for body and login-page are defined as you need them */
-body, .login-page {
+.login-page {
     margin: 0;
     padding: 0;
     display: flex;

@@ -41,39 +41,41 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class = "login-page">
-    <div class ="login-container">
-        
-            <div class="login-box">
-                <div class="split-view">
-                    <h1>Log in</h1>
-                    <?php if ($is_invalid): ?>
-                        <em>Invalid login</em>
-                        <?php endif; ?>
+<body>
 
-                    <form method="post">
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" id="password">
-                        </div>
-                    
-                        <button> Log in </button>
+    <div class = "login-page">
+        <div class ="login-container">
 
+                <div class="login-box">
+                    <div class="split-view">
+                        <h1>Log in</h1>
+                        <?php if ($is_invalid): ?>
+                            <em>Invalid login</em>
+                            <?php endif; ?>
+
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" id="email" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password">
+                            </div>
                         
-                    </form>
-                    <div class="vertical-line"></div>
+                            <button> Log in </button>
 
-                    <div>
-                        <a href="SignUpHTML.html" class="btn signup-btn">Sign Up</a>
+                            
+                        </form>
+                        <div class="vertical-line"></div>
+
+                        <div>
+                            <a href="SignUpHTML.html" class="btn signup-btn">Sign Up</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-    </div>
-    
+        </div>
+    </div>   
     
 </body>
