@@ -36,7 +36,7 @@ $staffMembers = $result->fetch_all(MYSQLI_ASSOC);
         <form action="select_user.php" method="post">
             <label for="date">Select a date:</label>
             <input type="date" id="date" name="date">
-            <input type="submit" value="Choose D ate">
+            <input type="submit" value="Choose Date">
         </form>
         </div>
 

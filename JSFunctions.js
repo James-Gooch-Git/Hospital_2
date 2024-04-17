@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // });
 
 function setMinDate() {
-    var today = new Date().toISOString().split('T')[0]; // Gets today's date and formats it as "yyyy-mm-dd"
+    var today = new Date().toISOString().split('T')[0]; 
     document.getElementById("date").setAttribute("min", today); // Sets the min attribute to today's date
 }
 document.addEventListener('DOMContentLoaded', setMinDate);
