@@ -25,7 +25,7 @@ if (isset($_SESSION["user_ID"])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class = "login-page">
+<div>
     <div>
             <?php if (isset($user)): ?>
                 <?php include 'sidebar.php'; ?>

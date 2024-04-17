@@ -25,7 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Stage 2: Staff member selection (user_ID)
     if (isset($_POST['user_ID'])) {
         $user_id = $_POST['user_ID'];
-        $date = $_POST['date']; // Make sure to pass the previously selected date forward
+        $date = $_POST['date'];
+        
 
         // Fetch available time slots for the selected staff member and date
         $sql = "SELECT ts.time_slot_ID, ts.hour_block, IFNULL(a.is_available, 1) AS is_available

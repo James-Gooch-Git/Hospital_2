@@ -29,6 +29,16 @@ body, html {
     justify-content: space-between; /* This helps in structuring the nav and potentially a footer or other elements */
 }
 
+.staff-selection-form .form-controls {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: stretch; /* Stretch children to fill the width */
+}
+
+.staff-selection-form .form-element {
+    margin-bottom: 10px; /* Spacing between elements */
+}
+
 .sidebar, .sidebar-right {
     flex-shrink: 0; /* Prevents the sidebars from shrinking */
     width: 250px; /* Example fixed width for sidebars */
@@ -245,4 +255,20 @@ body, html {
     background-color: #0056b3; /* Darker shade on hover for the sign-up button */
 }
 
+.form-controls {
+    display: flex; /* Aligns children (select, input, anchor) in a row */
+    justify-content: space-between; /* Spreads children evenly */
+    align-items: center; /* Aligns children vertically */
+}
 
+select#user_ID {
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-right: 5px; /* Ensures spacing on the right */
+}
+
+select#patient_ID {
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-right: 5px; /* Ensures spacing on the right */
+}
