@@ -2,10 +2,10 @@
 <?php
 session_start();
 
-// Assuming the logged-in user's type_ID is stored in the session
+
 
 //$canEdit = isset($_SESSION["type_ID"]) && in_array($_SESSION["type_ID"], [1]);
-$canEdit = true;
+
 
 include 'functions.php';
 ?>
@@ -53,10 +53,10 @@ include 'functions.php';
             echo "<input type='text' name='address' value='" . htmlspecialchars($employee['address']) . "' class='edit-input'>";
             echo "</div>";
             
-            if ($canEdit) {
+            if ($_SESSION['type_ID'] == 1) {
                 echo "<div class='employee-actions' id='actionButtons_{$employee['user_ID']}'>";
                 echo "<a href='#' class='btn update-btn' onclick='enableEdit(" . $employee['user_ID'] . ")'>Edit</a>";
-                echo "<button onclick='confirmDelete(" . $employee['user_ID'] . ")' class='btn delete-btn'>Delete</button>";
+                echo "<button onclick='confirmDeleteE(" . $employee['user_ID'] . ")' class='btn delete-btn'>Delete</button>";
                 echo "</div>";
                 
                 echo "<div class='confirm-actions' style='display:none;' id='confirmButtons_{$employee['user_ID']}'>";

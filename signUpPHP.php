@@ -64,9 +64,13 @@ $stmt ->bind_param("ssssssi",
 
 try {
     if ($stmt->execute()) {
-        header("Location: signup-success.html");
-        exit;
-        // echo "Signup successful";
+        echo "<script>
+        alert('Signup successful');
+        setTimeout(function() {
+            window.location.href = 'login.php';
+        }, 2000); // Redirect after 2 seconds
+      </script>";
+       exit;
     } else {
         // This else block might not be necessary if exceptions are thrown for errors,
         // but it's here for completeness.

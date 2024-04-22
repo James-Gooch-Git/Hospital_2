@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["user_ID"] = $user["user_ID"];
             $_SESSION["type_ID"] = $user["type_ID"]; 
 
-            header("Location: index.php");
+            header("Location: View_Patient.php");
             exit;
         }
     }
@@ -49,32 +49,47 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class ="login-container">
 
                 <div class="login-box">
-                    <div class="split-view">
-                        <h1>Log in</h1>
-                        <?php if ($is_invalid): ?>
-                            <em>Invalid login</em>
-                            <?php endif; ?>
-
-                        <form method="post">
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" name="email" id="email" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" name="password" id="password">
-                            </div>
+                    
+                        <!-- <h1>Log in</h1> -->
                         
-                            <button> Log in </button>
+                        <form method="post">
+                            <div class = login-details>
 
-                            
+                            <div class="loginsign"> Log in</div>
+
+                                <div class="login-email">
+                                    <label class="loginlabel" for="email">Email</label>
+                                    <input type="email" name="email" id="email" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="loginlabel" for="password">Password</label>
+                                    <input type="password" name="password" id="password">
+                                </div>
+                    
+                    
+                                <button class="btn"> Log in </button>
+                                <hr class="horizontal-line"></div>
+                                
+                                <div>
+                                    <center><a href="SignUpHTML.html" class="btn">Sign Up</a></center>
+                                </div>
+                            </div>  
                         </form>
-                        <div class="vertical-line"></div>
 
-                        <div>
-                            <a href="SignUpHTML.html" class="btn signup-btn">Sign Up</a>
-                        </div>
-                    </div>
+                        
+                       
+                        <div class = "loginform">          
+                            
+                            </div>
+                      
+                            <?php if ($is_invalid): ?>
+                                <em>Invalid login</em>
+                                <?php endif; ?>
+                       
+                            </div>
+                       
+                   
                 </div>
 
         </div>

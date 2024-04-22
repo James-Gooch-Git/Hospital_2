@@ -1,6 +1,9 @@
 <?php
 include 'functions.php';
 $mysqli = require __DIR__ . "/database.php";
+
+$patientID = $_GET['patient_ID'];
+
 // At the beginning of your script, right after including your database and functions
 if (isset($_GET['patient_ID'])) {
     $selectedPatientID = $_GET['patient_ID'];
@@ -11,6 +14,8 @@ if (isset($_GET['patient_ID'])) {
     header("Location: error.php");
     exit;
 }
+// $patientDetails = getPatientDetails($patientID); // You need to have this function defined in your functions.php
+// $patient_fName = $patientDetails['name'];
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
@@ -97,6 +102,7 @@ $mysqli->close();
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn">Submit</button>
+                    <a href="View_Prescription.php?patient_ID=<?= htmlspecialchars($patientID) ?>" class="btn">Back to Patients Prescriptions</a>
                 </div>
             </form>
         </main>

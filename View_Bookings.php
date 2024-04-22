@@ -1,5 +1,15 @@
 
-<?php include 'functions.php'; ?>
+<?php 
+session_start();
+
+//$canEdit = isset($_SESSION["type_ID"]) && in_array($_SESSION["type_ID"], [1]);
+$canEdit = true;
+
+include 'functions.php'; 
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +27,12 @@
         <?php include 'list_bookings.php'; ?>
     </main>
 
-    <?php include 'make_Booking.php'; ?>
+    <?php 
+        if ($canEdit) {
+            include 'make_Booking.php'; 
+        }        
+    ?>
+        
     
    
 </div>

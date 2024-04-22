@@ -6,7 +6,7 @@ $mysqli = require __DIR__ . "/database.php";
 
 // // Retrieve the selected date from the form submission
 
-// $date = $_POST['date'];
+$date = $_POST['date'];
 // // Prepare the SQL statement to select all staff members
 // $sql = "SELECT user_ID, fName, lName, type_ID FROM Staff";
 // $stmt = $mysqli->prepare($sql);
@@ -16,7 +16,7 @@ $mysqli = require __DIR__ . "/database.php";
 // $result = $stmt->get_result();
 
 
-include_once 'functions.php'; 
+include 'functions.php'; 
 $staffMembers = GetStaff();
 ?>
     <!DOCTYPE html>
@@ -26,6 +26,7 @@ $staffMembers = GetStaff();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medical Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <script src="JSFunctions.js" defer></script>
 </head>
 <body>
 

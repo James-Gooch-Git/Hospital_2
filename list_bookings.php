@@ -24,7 +24,7 @@ foreach ($Availabilities as $availability) {
     echo "</select>";
     echo "<button type='submit' class='btn assign-btn'>Assign Patient</button>";
     echo "</form>";
-    echo "<button onclick='confirmDelete(" . htmlspecialchars($availability['availability_id']) . ")' class='btn delete-btn'>Delete</button>";
+    echo "<button onclick='confirmDeleteB(" . htmlspecialchars($availability['availability_id']) . ")' class='btn delete-btn'>Delete</button>";
 
     echo "</div>";
     echo "</div>";

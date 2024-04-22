@@ -60,7 +60,7 @@ function cancelEdit(userId) {
     });
 }
 
-function confirmDelete(userId) {
+function confirmDeleteE(userId) {
     if (confirm("Are you sure you want to delete this employee?")) {
         // If confirmed, proceed with deletion
         // Here you can either submit a form or make an AJAX call to delete the employee
@@ -81,6 +81,26 @@ function confirmDelete(userId) {
     }
 }
 
+function confirmDeleteB(availabilityId) {
+    if (confirm("Are you sure you want to delete this booking?")) {
+        // If confirmed, proceed with deletion
+        // Here you can either submit a form or make an AJAX call to delete the employee
+
+        // Example of making a form submission
+        var form = document.createElement('form');
+        document.body.appendChild(form);
+        form.method = 'post';
+        form.action = 'delete_booking.php';
+
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'availability_id';
+        input.value = availabilityId;
+        form.appendChild(input);
+
+        form.submit();
+    }
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     // Select all forms with the class 'update-form'
@@ -144,7 +164,7 @@ function cancelEdit(patientId) {
     });
 }
 
-function confirmDelete(patientId) {
+function confirmDeleteP(patientId) {
     if (confirm("Are you sure you want to delete this patient?")) {
         // If confirmed, proceed with deletion
         // Here you can either submit a form or make an AJAX call to delete the employee
@@ -215,3 +235,52 @@ function setMinDate() {
     document.getElementById("date").setAttribute("min", today); // Sets the min attribute to today's date
 }
 document.addEventListener('DOMContentLoaded', setMinDate);
+
+let originalData = {};
+
+function toggleEditU() {
+    let inputs = document.querySelectorAll('#editForm input');
+    inputs.forEach(input => {
+        if (input.style.display === 'none') {
+            input.style.display = 'inline';
+            input.previousElementSibling.style.display = 'none';
+        } else {
+            input.style.display = 'none';
+            input.previousElementSibling.style.display = 'inline';
+        }
+    });
+}
+
+
+
+function saveEditU() {
+    let formData = new FormData(document.getElementById('editForm'));
+    fetch('update_profile.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())  // Assuming response as text for simplicity
+    .then(data => {
+        if (data.includes("Success")) {
+            window.location.href = 'View_Profile.php'; // Redirect on success
+        } else {
+            throw new Error(data); // Handle errors
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Failed to update profile: ' + error.message);
+    });
+}
+
+
+
+
+function cancelEditU() {
+    // Reset input values to original data
+    document.querySelectorAll('input').forEach(input => {
+        input.value = originalData[input.id];
+        input.style.display = 'none';
+        input.previousElementSibling.style.display = 'inline';
+    });
+}

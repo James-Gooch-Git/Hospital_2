@@ -8,7 +8,18 @@ body, html {
     display: flex;
     height: 100vh; /* Set the container height to fill the viewport */
     overflow: hidden; /* Prevent overflow outside the container */
+    
 }
+
+.container#diagnosis {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    /* Add any additional styling for each employee box */
+}
+
 
 .sidebar {
     width: 250px;
@@ -96,6 +107,13 @@ body, html {
     max-height: 100vh; /* Ensure content area does not exceed viewport height */
 }
 
+.profile-box .content
+{
+    
+    width: 34vw;
+    margin-top: 0px;
+}
+
 .employee-box {
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -104,6 +122,10 @@ body, html {
     background-color: #fff;
     /* Add any additional styling for each employee box */
 }
+
+
+
+
 
 .employee-box h2 {
     margin-top: 0; /* Adjusts spacing at the top of the box */
@@ -141,7 +163,7 @@ body, html {
 
 .patient-actions {
     display: flex;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
 }
 
 .availability-box {
@@ -168,13 +190,76 @@ body, html {
     justify-content: flex-end;
 }
 
+.diagnosis-box{
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    /* Add any additional styling for each employee box */
+}
+
+.diagnosis-box h2 {
+    margin-top: 0; /* Adjusts spacing at the top of the box */
+    color: #333; /* Dark color for the name for better readability */
+}
+
+.diagnosis-box p {
+    margin: 10px 0; /* Adds space around the paragraphs for better readability */
+    color: #666; /* Lighter text color for the details */
+}
+
+.prescription-box{
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    /* Add any additional styling for each employee box */
+}
+
+.prescription-box h2 {
+    margin-top: 0; /* Adjusts spacing at the top of the box */
+    color: #333; /* Dark color for the name for better readability */
+}
+
+.prescription-box p {
+    margin: 10px 0; /* Adds space around the paragraphs for better readability */
+    color: #666; /* Lighter text color for the details */
+}
+
 .btn {
     padding: 10px 15px;
     margin-left: 10px; /* Space between buttons */
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center;
 }
+
+.btn .signup-btn{
+   
+    font-size: 2em;
+    /* margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px; */
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+.form-group input {
+    height: 20px;
+    border-radius: 10px;
+}
+
+
+.login-email input {
+    height: 20px;
+    border-radius: 10px;
+}
+
+
 
 .update-btn {
     background-color: #4ca2af9c; /* Green */
@@ -201,6 +286,26 @@ body, html {
     background-color: #002244; /* Adjust the background color as needed */
 }
 
+.login-email {
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+}
+
+.login-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 .login-container, .index-container {
     display: flex;
     justify-content: center;
@@ -209,7 +314,7 @@ body, html {
 
 .login-box, .index-box {
     background-color: #007bff; /* Adjust the login box background color as needed */
-    display: flex;
+    /* display: flex; */
     justify-content: space-around;
     align-items: center;
     width: 60%; /* Adjust the width as needed */
@@ -225,11 +330,65 @@ body, html {
     width: 100%;
 }
 
-.vertical-line {
-    border-left: 2px solid #ffffff;
-    height: 100px;
+.horizontal-line {
+   width: 80%;
+    border-radius: 33px;
+   height: 1px;
+   background-color: #fff;
+   margin: 20px 0;
 }
 
+.search-container {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#searchPInput {
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#searchEInput {
+    border-radius: 5px;
+    padding: 10px;
+}
+.backgroundcolour{
+    position: absolute;
+    background-color: #002244;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-box {
+   
+    border: 1px ;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color:#007bffe6;
+    width: auto;
+    /* max-width: 600px; Limiting max width for better readability */
+    margin: 20px auto; /* Centering the box */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Adding subtle shadow for depth */
+    
+}
+
+.profile-box h2 {
+    margin-top: 0;
+    color: white;
+    font-size: 24px; /* Slightly larger for headings */
+}
+
+.profile-box p {
+    margin: 10px 0;
+    color: white;
+    font-size: 16px; /* Clear and readable text size */
+}
 .btn {
     padding: 10px 20px;
     margin: 5px;
@@ -240,15 +399,42 @@ body, html {
     cursor: pointer;
 }
 
+.loginsign {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#prescriptionList {
+ margin-top: 20px;
+}
+
+#diagnosisList {
+    margin-top: 20px;
+   }
+
 .btn:hover {
     background-color: #003d7a;
 }
 
+.loginlabel {
+    color: white;
 
-  
+}
 
 .signup-btn {
-    background-color: #007bff; /* Different background color for the sign-up button */
+    background-color: #007bff;
+      
+        font-size: 2em;
+        /* margin-block-start: 0.67em;
+        margin-block-end: 0.67em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px; */
+        font-weight: bold;
+        unicode-bidi: isolate;
+        position: relative;
+       
+    
 }
 
 .signup-btn:hover {

@@ -33,6 +33,7 @@ include_once 'functions.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medical Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <script src="JSFunctions.js" defer></script>
 </head>
 <body>
 
@@ -61,7 +62,8 @@ include_once 'functions.php';
                     </option>
                 <?php endforeach; ?>
             </select>
-            <input type="submit" value="Book Time Slot">
+            <input type="submit" class="btn" value="Book Time Slot">
+            <a href="View_Bookings.php" class="btn">Back</a>
         </form>
     </aside>
        

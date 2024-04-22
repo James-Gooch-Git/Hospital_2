@@ -4,7 +4,7 @@ session_start();
 // Assuming the logged-in user's type_ID is stored in the session
 
 //$canEdit = isset($_SESSION["type_ID"]) && in_array($_SESSION["type_ID"], [1]);
-$canEdit = true;
+// $canEdit = true;
 
 include 'functions.php';
 ?>
@@ -23,11 +23,18 @@ include 'functions.php';
 <div class="container">
     <?php include 'sidebar.php'; ?>
     <main class="content">
-     
         <div class="search-container">
             <input type="text" id="searchPInput" placeholder="Search patients..." onkeyup="searchPatients()">
-            <a href="Add_Patient.php" class="btn">Add Patient</a>
+            <?php
+         if ($_SESSION['type_ID'] == 1) {
+            echo "<a href='Add_Patient.php' class='btn'>Add Patient</a>";
+            
+        
+
+            }
+        ?>
         </div>
+      
 
         <div id="patientList">
             <?php
@@ -50,23 +57,27 @@ include 'functions.php';
                 echo "<input type='text' name='patient_address' value='" . htmlspecialchars($patient['patient_address']) . "' class='edit-input'>";
                 echo "</div>";
                 
-                if ($canEdit) {
-                    echo "<div class='patient-actions' id='actionButtons_{$patient['patient_ID']}'>";
-                    echo "<a href='#' class='btn update-btn' onclick='enableEdit(" . $patient['patient_ID'] . ")'>Edit</a>";
-                    echo "<button onclick='confirmDelete(" . $patient['patient_ID'] . ")' class='btn delete-btn'>Delete</button>";
-                    echo "</div>";
-                    
-                    echo "<div class='confirm-actions' style='display:none;' id='confirmButtons_{$patient['patient_ID']}'>";
-                  
-                    echo "<button onclick='confirmEdit(" . $patient['patient_ID'] . ")' class='btn confirm-btn'>Confirm</button>";
-                    echo "<button onclick='cancelEdit(" . $patient['patient_ID'] . ")' class='btn cancel-btn'>Cancel</button>";
-                    echo "</div>";
-                }
+                
+                echo "<div class='patient-actions' id='actionButtons_{$patient['patient_ID']}'>";
+                
                 echo "<a href='View_Diagnosis.php?patient_ID=" . $patient['patient_ID'] . "' class='btn view-diagnosis-btn'>View Diagnoses</a>";
                 echo "<a href='View_Prescription.php?patient_ID=" . $patient['patient_ID'] . "' class='btn view-prescription-btn'>View Prescriptions</a>";
-
-                echo "</form>";
+            if ($_SESSION['type_ID'] == 1) {
+                echo "<a href='#' class='btn update-btn' onclick='enableEdit(" . $patient['patient_ID'] . ")'>Edit</a>";
+                echo "<button onclick='confirmDeleteP(" . $patient['patient_ID'] . ")' class='btn delete-btn'>Delete</button>";
+            }
+                echo "</div>";
             
+                
+                echo "<div class='confirm-actions' style='display:none;' id='confirmButtons_{$patient['patient_ID']}'>";
+                
+                echo "<button onclick='confirmEdit(" . $patient['patient_ID'] . ")' class='btn confirm-btn'>Confirm</button>";
+                echo "<button onclick='cancelEdit(" . $patient['patient_ID'] . ")' class='btn cancel-btn'>Cancel</button>";
+                echo "</div>";
+            
+            
+                echo "</form>";
+        
                 echo "</div>";
             
             }
