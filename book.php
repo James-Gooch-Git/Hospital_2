@@ -49,8 +49,6 @@ $stmt->close();
     <?php include 'sidebar.php'; ?>
    
     <main class="content">
-        <?php include 'list_bookings.php'; ?>
-        <aside class="sidebar sidebar-right">
         <?php
         if (isset($_SESSION['success_message'])) {
             echo "<p>" . $_SESSION['success_message'] . "</p>";
@@ -59,6 +57,9 @@ $stmt->close();
         }
         ?>
         </aside>
+        <?php include 'list_bookings.php'; ?>
+        <aside class="sidebar sidebar-right">
+     
        
     </main>
 

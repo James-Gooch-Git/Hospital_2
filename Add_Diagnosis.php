@@ -73,7 +73,6 @@ $mysqli->close();
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <!-- Patient dropdown is now a hidden field, as the patient is preselected -->
                 <div class="form-group">
                     <button type="submit" class="btn">Submit</button>
                     <a href="View_Diagnosis.php?patient_ID=<?= htmlspecialchars($patientID) ?>" class="btn">Back to Patient Diagnosis</a>
