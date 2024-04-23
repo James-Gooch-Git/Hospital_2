@@ -4,19 +4,20 @@
 // Include the database connection file
 $mysqli = require __DIR__ . "/database.php";
 
-// Retrieve the selected date from the form submission
+// // Retrieve the selected date from the form submission
 
 $date = $_POST['date'];
-// Prepare the SQL statement to select all staff members
-$sql = "SELECT user_ID, fName FROM Staff";
-$stmt = $mysqli->prepare($sql);
+// // Prepare the SQL statement to select all staff members
+// $sql = "SELECT user_ID, fName, lName, type_ID FROM Staff";
+// $stmt = $mysqli->prepare($sql);
 
-// Execute the query
-$stmt->execute();
-$result = $stmt->get_result();
-$staffMembers = $result->fetch_all(MYSQLI_ASSOC);
+// // Execute the query
+// $stmt->execute();
+// $result = $stmt->get_result();
 
-include_once 'functions.php'; 
+
+include 'functions.php'; 
+$staffMembers = GetStaff();
 ?>
     <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +26,7 @@ include_once 'functions.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medical Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <script src="JSFunctions.js" defer></script>
 </head>
 <body>
 
@@ -39,19 +41,25 @@ include_once 'functions.php';
     </main>
   
     <aside class="sidebar sidebar-right">
-        <form action="select_time_slot.php" method="post">
+        <form action="select_time_slot.php" method="post" class="staff-selection-form">
             <input type="hidden" name="date" value="<?php echo htmlspecialchars($date); ?>">
             <label for="user_ID">Select a staff member:</label>
-            <select id="user_ID" name="user_ID">
-                <?php foreach ($staffMembers as $member): ?>
-                    <option value="<?php echo htmlspecialchars($member['user_ID']); ?>">
-                        <?php echo htmlspecialchars($member['fName']); ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-            <input type="submit" value="Choose Staff Member">
+            <div class="form-controls">
+                <select id="user_ID" name="user_ID">
+                    <?php foreach ($staffMembers as $member): ?>
+                        <?php if($member['type_ID'] != 1):  ?>
+                            <option value="<?php echo htmlspecialchars($member['user_ID']); ?>">
+                                <?php echo htmlspecialchars($member['type_description']) . " | Staff ID " . htmlspecialchars($member['user_ID']) . " | " . htmlspecialchars($member['fName']) . " " . htmlspecialchars($member['lName']) ; ?>
+                            </option>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </select>
+                <input type="submit" value="Choose Staff Member" class="btn">
+                <a href="View_Bookings.php" class="btn">Back</a>
+            </div>
         </form>
     </aside>
+
        
     
 

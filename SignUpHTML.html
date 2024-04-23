@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Signup</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
+    <script src="/SignUp/JS/validation.js" defer></script>
+</head>
+<body>
+<div class ="backgroundcolour">
+    <div class="profile-box">
+
+
+            <main class="content">
+                <div class="user-icon">
+                    <img src="Hospital_Logo.webp" alt="User" class="user-picture">
+                </div>
+                <div class="loginsign"> Sign Up</div>
+
+                <form action="signUpPHP.php" method="post" id="signup" novalidate class="form">
+                    <div class="form-group">
+                        <label class="loginlabel" for="fName">First Name</label>
+                        <input type="text" id="fName" name="fName" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="loginlabel" for="lName">Last Name</label>
+                        <input type="text" id="lName" name="lName" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="loginlabel" for="contact_No">Contact Number</label>
+                        <input type="tel" id="contact_No" name="contact_No" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="loginlabel" for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="loginlabel" for="address">Address</label>
+                        <input type="text" id="address" name="address" class="form-control">
+                    </div>
+
+                    <fieldset class="form-group">
+                        <legend class="loginlabel" >Job Title:</legend>
+                        <!-- <label><input type="radio" id="type_ID" name="type_ID" value="1"> Sys Admin</label> -->
+                        <label class="loginlabel" ><input type="radio" id="type_ID" name="type_ID" value="2"> Doctor</label>
+                        <label class="loginlabel" ><input type="radio" id="type_ID" name="type_ID" value="3"> Nurse</label>
+                        <label class="loginlabel" ><input type="radio" id="type_ID" name="type_ID" value="4"> Secretary</label>
+                    </fieldset>
+                    
+                    <div class="form-group">
+                        <label class="loginlabel"  for="password">Password</label>
+                        <input class="loginlabel"  type="password" id="password" name="password" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="loginlabel" for="password_confirmation">Password Confirmation</label>
+                        <input class="loginlabel" type="password" id="password_confirmation" name="password_confirmation" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn">Submit</button>
+                    </div>
+
+                    
+
+                    <div class="form-group">
+                        <a href="login.php" class="btn"> Log In </a>
+                    </div>
+
+                </form>
+            </main>
+    </div>
+</div>
+
+</body>
+</html>

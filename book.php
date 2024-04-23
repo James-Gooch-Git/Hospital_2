@@ -41,6 +41,7 @@ $stmt->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Patients</title>
     <link rel="stylesheet" href="style.css"> <!-- Make sure your CSS file is linked here -->
+    <script src="JSFunctions.js" defer></script>
 </head>
 <body>
 

@@ -11,14 +11,14 @@
 <div class="container">
     <aside class="sidebar">
         <div class="user-icon">
-            <img src="user-icon.webp" alt="User" class="user-picture">
+            <img src="Hospital_Logo.webp" alt="User" class="user-picture">
         </div>
         <nav class="sidebar-nav">
-            <a href="view_Employee.php" class="button">View Employee</a>
+            <a href="view_Employee.php" class="button">View Staff</a>
             <a href="view_Patient.php" class="button">View Patient</a>
             <a href="View_Bookings.php" class="button">Bookings</a>
-            <a href="index.php" class="button">Profile</a>
-            <a href="log_out.php" class="button">Log Out</a>
+            <a href="View_Profile.php" class="button">Profile</a>
+            
         </nav>
         <footer class="sidebar-footer">
             <small><a href="log_out.php" class="logout-link">Log Out</a></small>

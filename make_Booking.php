@@ -23,6 +23,7 @@ $staffMembers = $result->fetch_all(MYSQLI_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medical Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <script src="JSFunctions.js" defer></script>
 </head>
 <body>
 
@@ -32,10 +33,11 @@ $staffMembers = $result->fetch_all(MYSQLI_ASSOC);
        
     <div id="bookingForm">
         <div id="dateSelection">
+            <h1> Make a Booking </h1>
         <form action="select_user.php" method="post">
             <label for="date">Select a date:</label>
             <input type="date" id="date" name="date">
-            <input type="submit" value="Choose Date">
+            <input type="submit" class = "btn" value="Choose Date">
         </form>
         </div>
 

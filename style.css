@@ -8,7 +8,18 @@ body, html {
     display: flex;
     height: 100vh; /* Set the container height to fill the viewport */
     overflow: hidden; /* Prevent overflow outside the container */
+    
 }
+
+.container#diagnosis {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    /* Add any additional styling for each employee box */
+}
+
 
 .sidebar {
     width: 250px;
@@ -27,6 +38,16 @@ body, html {
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* This helps in structuring the nav and potentially a footer or other elements */
+}
+
+.staff-selection-form .form-controls {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: stretch; /* Stretch children to fill the width */
+}
+
+.staff-selection-form .form-element {
+    margin-bottom: 10px; /* Spacing between elements */
 }
 
 .sidebar, .sidebar-right {
@@ -86,6 +107,13 @@ body, html {
     max-height: 100vh; /* Ensure content area does not exceed viewport height */
 }
 
+.profile-box .content
+{
+    
+    width: 34vw;
+    margin-top: 0px;
+}
+
 .employee-box {
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -93,6 +121,14 @@ body, html {
     margin-bottom: 20px;
     background-color: #fff;
     /* Add any additional styling for each employee box */
+}
+
+#password {
+    color: black;
+}
+
+#password_confirmation {
+    color: black;
 }
 
 .employee-box h2 {
@@ -131,7 +167,7 @@ body, html {
 
 .patient-actions {
     display: flex;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
 }
 
 .availability-box {
@@ -158,13 +194,76 @@ body, html {
     justify-content: flex-end;
 }
 
+.diagnosis-box{
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    /* Add any additional styling for each employee box */
+}
+
+.diagnosis-box h2 {
+    margin-top: 0; /* Adjusts spacing at the top of the box */
+    color: #333; /* Dark color for the name for better readability */
+}
+
+.diagnosis-box p {
+    margin: 10px 0; /* Adds space around the paragraphs for better readability */
+    color: #666; /* Lighter text color for the details */
+}
+
+.prescription-box{
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    /* Add any additional styling for each employee box */
+}
+
+.prescription-box h2 {
+    margin-top: 0; /* Adjusts spacing at the top of the box */
+    color: #333; /* Dark color for the name for better readability */
+}
+
+.prescription-box p {
+    margin: 10px 0; /* Adds space around the paragraphs for better readability */
+    color: #666; /* Lighter text color for the details */
+}
+
 .btn {
     padding: 10px 15px;
     margin-left: 10px; /* Space between buttons */
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center;
 }
+
+.btn .signup-btn{
+   
+    font-size: 2em;
+    /* margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px; */
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+.form-group input {
+    height: 20px;
+    border-radius: 10px;
+}
+
+
+.login-email input {
+    height: 20px;
+    border-radius: 10px;
+}
+
+
 
 .update-btn {
     background-color: #4ca2af9c; /* Green */
@@ -177,4 +276,189 @@ body, html {
     background-color: #9d2921b3; /* Red */
     color: white;
     font-size: 16px;
+}
+
+/* Existing styles */
+/* Add or ensure these styles for body and login-page are defined as you need them */
+.login-page {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #002244; /* Adjust the background color as needed */
+}
+
+.login-email {
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+}
+
+.login-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.login-container, .index-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.login-box, .index-box {
+    background-color: #007bff; /* Adjust the login box background color as needed */
+    /* display: flex; */
+    justify-content: space-around;
+    align-items: center;
+    width: 60%; /* Adjust the width as needed */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* New styles */
+.split-view {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.horizontal-line {
+   width: 80%;
+    border-radius: 33px;
+   height: 1px;
+   background-color: #fff;
+   margin: 20px 0;
+}
+
+.search-container {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#searchPInput {
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#searchEInput {
+    border-radius: 5px;
+    padding: 10px;
+}
+.backgroundcolour{
+    position: absolute;
+    background-color: #002244;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-box {
+   
+    border: 1px ;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color:#007bffe6;
+    width: auto;
+    /* max-width: 600px; Limiting max width for better readability */
+    margin: 20px auto; /* Centering the box */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Adding subtle shadow for depth */
+    
+}
+
+.profile-box h2 {
+    margin-top: 0;
+    color: white;
+    font-size: 24px; /* Slightly larger for headings */
+}
+
+.profile-box p {
+    margin: 10px 0;
+    color: white;
+    font-size: 16px; /* Clear and readable text size */
+}
+.btn {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #004c8c;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.loginsign {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#prescriptionList {
+ margin-top: 20px;
+}
+
+#diagnosisList {
+    margin-top: 20px;
+   }
+
+.btn:hover {
+    background-color: #003d7a;
+}
+
+.loginlabel {
+    color: white;
+
+}
+
+.signup-btn {
+    background-color: #007bff;
+      
+        font-size: 2em;
+        /* margin-block-start: 0.67em;
+        margin-block-end: 0.67em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px; */
+        font-weight: bold;
+        unicode-bidi: isolate;
+        position: relative;
+       
+    
+}
+
+.signup-btn:hover {
+    background-color: #0056b3; /* Darker shade on hover for the sign-up button */
+}
+
+.form-controls {
+    display: flex; /* Aligns children (select, input, anchor) in a row */
+    justify-content: space-between; /* Spreads children evenly */
+    align-items: center; /* Aligns children vertically */
+}
+
+select#user_ID {
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-right: 5px; /* Ensures spacing on the right */
+}
+
+select#patient_ID {
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-right: 5px; /* Ensures spacing on the right */
 }
