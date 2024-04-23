@@ -2,8 +2,7 @@
 <?php 
 session_start();
 
-//$canEdit = isset($_SESSION["type_ID"]) && in_array($_SESSION["type_ID"], [1]);
-$canEdit = true;
+$canEdit = isset($_SESSION["type_ID"]) && in_array($_SESSION["type_ID"], [1, 2, 3, 4]);
 
 include 'functions.php'; 
 
@@ -16,7 +15,7 @@ include 'functions.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Patients</title>
-    <link rel="stylesheet" href="style.css"> <!-- Make sure your CSS file is linked here -->
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 
@@ -27,7 +26,7 @@ include 'functions.php';
     <?php
     include_once 'functions.php';
 
-    // Assuming getPatients is a function that fetches patient data as an array of ['patient_id' => x, 'patient_name' => y]
+ 
     $patients = getPatientsDropdown();
 
     $Availabilities = getAvailability();

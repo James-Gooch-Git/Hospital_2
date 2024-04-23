@@ -4,28 +4,25 @@ $mysqli = require __DIR__ . "/database.php";
 
 $patientID = $_GET['patient_ID'];
 
-// At the beginning of your script, right after including your database and functions
 if (isset($_GET['patient_ID'])) {
     $selectedPatientID = $_GET['patient_ID'];
 } elseif (isset($_POST['patient_ID'])) {
     $selectedPatientID = $_POST['patient_ID'];
 } else {
-    // Redirect or handle the missing patient_ID appropriately
+
     header("Location: error.php");
     exit;
 }
-// $patientDetails = getPatientDetails($patientID); // You need to have this function defined in your functions.php
-// $patient_fName = $patientDetails['name'];
+
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-// Fetch users and patients for dropdowns
 function fetchAll($mysqli, $query) {
     $stmt = $mysqli->prepare($query);
     $stmt->execute();
     $result = $stmt->get_result();
     $data = $result->fetch_all(MYSQLI_ASSOC);
-    $stmt->close(); // Ensure statement is closed here
+    $stmt->close(); 
     return $data;
 }
 

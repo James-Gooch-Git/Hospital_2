@@ -1,5 +1,6 @@
 
 <?php
+
 // Include the database connection file
 $mysqli = require __DIR__ . "/database.php";
 

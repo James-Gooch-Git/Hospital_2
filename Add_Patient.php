@@ -1,5 +1,5 @@
 <?php
-// Include database configuration and open connection
+
 include_once 'functions.php';
 $mysqli = require __DIR__ . "/database.php";
 
@@ -48,13 +48,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } catch (mysqli_sql_exception $e) {
         die("An error occurred: " . $e->getMessage());
     } finally {
-        $stmt->close(); // Ensure the statement is closed even if an exception occurs
+        $stmt->close(); 
     }
 
     
 }
 
-// Close statement and connection
+
 $mysqli->close();
 ?>
 
