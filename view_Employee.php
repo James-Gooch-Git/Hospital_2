@@ -1,6 +1,7 @@
 
 <?php
 session_start();
+$updateStatus = isset($_GET['update']) && $_GET['update'] === 'success';
 
 
 
@@ -52,22 +53,25 @@ include 'functions.php';
             echo "<input type='text' name='email' value='" . htmlspecialchars($employee['email']) . "' class='edit-input'>";
             echo "<input type='text' name='address' value='" . htmlspecialchars($employee['address']) . "' class='edit-input'>";
             echo "</div>";
+            echo "<div class='employee-actions' id='actionButtons_{$employee['user_ID']}'>";
             
             if ($_SESSION['type_ID'] == 1) {
-                echo "<div class='employee-actions' id='actionButtons_{$employee['user_ID']}'>";
-                echo "<a href='#' class='btn update-btn' onclick='enableEdit(" . $employee['user_ID'] . ")'>Edit</a>";
-                echo "<button onclick='confirmDeleteE(" . $employee['user_ID'] . ")' class='btn delete-btn'>Delete</button>";
-                echo "</div>";
                 
-                echo "<div class='confirm-actions' style='display:none;' id='confirmButtons_{$employee['user_ID']}'>";
-              
-                echo "<button onclick='confirmEdit(" . $employee['user_ID'] . ")' class='btn confirm-btn'>Confirm</button>";
-                echo "<button onclick='cancelEdit(" . $employee['user_ID'] . ")' class='btn cancel-btn'>Cancel</button>";
-                echo "</div>";
+            echo "<a href='#' class='btn update-btn' onclick='enableEditE(" . $employee['user_ID'] . ")'>Edit</a>";
+            echo "<button onclick='confirmDeleteE(" . $employee['user_ID'] . ")' class='btn delete-btn'>Delete</button>";
+            
             }
+            echo "</div>";
+            echo "<div class='confirm-actions' style='display:none;' id='confirmButtons_{$employee['user_ID']}'>";
+            
+            echo "<button onclick='confirmEditE(" . $employee['user_ID'] . ")' class='btn confirm-btn'>Confirm</button>";
+            echo "<button onclick='cancelEditE(" . $employee['user_ID'] . ")' class='btn cancel-btn'>Cancel</button>";
+            echo "</div>";
+            
             echo "</form>";
             
             echo "</div>";
+    
         }
         ?>
     </div>

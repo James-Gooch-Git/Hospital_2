@@ -26,7 +26,7 @@ function searchStaff() {
     xhttp.send("query=" + input);
 }
 
-function enableEdit(userId) {
+function enableEditE(userId) {
     document.getElementById('editFields_' + userId).style.display = 'block';
     document.getElementById('actionButtons_' + userId).style.display = 'none';
     document.getElementById('confirmButtons_' + userId).style.display = 'block';
@@ -37,18 +37,33 @@ function enableEdit(userId) {
         item.style.display = 'none';
     });
 }
-function confirmEdit(userId) {
-    // Assuming the form's ID is set to 'employeeForm_' followed by the userID
+
+function confirmEditE(userId) {
+    // Assuming the form's ID is set to 'patientForm_' followed by the userID
     var form = document.querySelector('#employeeForm_' + userId);
     if (form) {
         form.submit();
     } else {
-        console.error("Form not found for userID:", userId);
+        console.error("Form not found for userID:", usertId);
     }
 }
 
 
-function cancelEdit(userId) {
+function hideFormAfterUpdate() {
+    // Logic to hide the form, e.g. by hiding the 'editFields' div
+    var editFields = document.querySelectorAll('div[id^="editFields_"]');
+    editFields.forEach(function(editField) {
+        editField.style.display = 'none';
+    });
+    // Logic to show the 'employee-actions' div again
+    var actionButtons = document.querySelectorAll('div[id^="actionButtons_"]');
+    actionButtons.forEach(function(actionButton) {
+        actionButton.style.display = 'block';
+    });
+}
+
+
+function cancelEditE(userId) {
     document.getElementById('editFields_' + userId).style.display = 'none';
     document.getElementById('actionButtons_' + userId).style.display = 'block';
     document.getElementById('confirmButtons_' + userId).style.display = 'none';
@@ -152,7 +167,7 @@ function confirmEdit(patientId) {
 }
 
 
-function cancelEdit(patientId) {
+function cancelEditP(patientId) {
     document.getElementById('editFields_' + patientId).style.display = 'none';
     document.getElementById('actionButtons_' + patientId).style.display = 'block';
     document.getElementById('confirmButtons_' + patientId).style.display = 'none';

@@ -15,9 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $stmt->bind_param('sssssi', $fName, $lName, $contact_No, $email, $address, $userId);
     if ($stmt->execute()) {
-        // Redirect if successful
-        header('Location: View_Employee.php');
-         // Make sure to terminate the script after a redirect
+        
+        header('Location: view_Employee.php');
+         
     } else {
         // Log error to browser console
         echo "<script>console.error('Error updating record:', " . json_encode($stmt->error) . ");</script>";

@@ -54,6 +54,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         
                         <form method="post">
                             <div class = login-details>
+                            <div class="user-icon">
+                                <img src="Hospital_Logo.webp" alt="User" class="user-picture">
+                            </div>
 
                             <div class="loginsign"> Log in</div>
 

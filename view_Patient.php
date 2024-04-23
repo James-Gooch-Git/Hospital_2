@@ -72,7 +72,7 @@ include 'functions.php';
                 echo "<div class='confirm-actions' style='display:none;' id='confirmButtons_{$patient['patient_ID']}'>";
                 
                 echo "<button onclick='confirmEdit(" . $patient['patient_ID'] . ")' class='btn confirm-btn'>Confirm</button>";
-                echo "<button onclick='cancelEdit(" . $patient['patient_ID'] . ")' class='btn cancel-btn'>Cancel</button>";
+                echo "<button onclick='cancelEditP(" . $patient['patient_ID'] . ")' class='btn cancel-btn'>Cancel</button>";
                 echo "</div>";
             
             
