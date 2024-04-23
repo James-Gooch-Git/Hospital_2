@@ -16,7 +16,7 @@ foreach ($Availabilities as $availability) {
     echo "<div class='availability-actions'>";
     echo "<form action='assign_patient.php' method='post'>";
     echo "<input type='hidden' name='availability_id' value='" . htmlspecialchars($availability['availability_id']) . "'>";
-    echo "<select name='patient_ID'>";
+    echo "<select class='patientdrop' name='patient_ID'>";
     foreach ($patients as $patient) {
         echo "<option value='" . htmlspecialchars($patient['patient_ID']) . "'>Patient ID " . htmlspecialchars($patient['patient_ID']) . " | " . htmlspecialchars($patient['patient_fName']) . " " . htmlspecialchars($patient['patient_lName']) . "</option>";
     }

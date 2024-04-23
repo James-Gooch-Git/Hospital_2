@@ -36,7 +36,7 @@ $staffMembers = $result->fetch_all(MYSQLI_ASSOC);
             <h1> Make a Booking </h1>
         <form action="select_user.php" method="post">
             <label for="date">Select a date:</label>
-            <input type="date" id="date" name="date">
+            <input type="date" class="bookingdate" id="date" name="date">
             <input type="submit" class = "btn" value="Choose Date">
         </form>
         </div>

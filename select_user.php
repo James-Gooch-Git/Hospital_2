@@ -47,7 +47,7 @@ $staffMembers = GetStaff();
             <div class="form-controls">
                 <select id="user_ID" name="user_ID">
                     <?php foreach ($staffMembers as $member): ?>
-                        <?php if($member['type_ID'] != 1):  ?>
+                        <?php if($member['type_ID'] != 1 && $member['type_ID'] != 4):  ?>
                             <option value="<?php echo htmlspecialchars($member['user_ID']); ?>">
                                 <?php echo htmlspecialchars($member['type_description']) . " | Staff ID " . htmlspecialchars($member['user_ID']) . " | " . htmlspecialchars($member['fName']) . " " . htmlspecialchars($member['lName']) ; ?>
                             </option>
@@ -59,6 +59,8 @@ $staffMembers = GetStaff();
             </div>
         </form>
     </aside>
+
+    
 
        
     

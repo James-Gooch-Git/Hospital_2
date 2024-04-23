@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["user_ID"] = $user["user_ID"];
             $_SESSION["type_ID"] = $user["type_ID"]; 
 
-            header("Location: View_Patient.php");
+            header("Location: View_Profile.php");
             exit;
         }
     }
@@ -68,6 +68,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 <div class="form-group">
                                     <label class="loginlabel" for="password">Password</label>
                                     <input type="password" name="password" id="password">
+                                    <div class = "loginform">          
+                            
+                                    
+                                
+                                        <?php if ($is_invalid): ?>
+                                            <em>Invalid login</em>
+                                            <?php endif; ?>
+                                
+                                    </div>
                                 </div>
                     
                     
@@ -82,15 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                         
                        
-                        <div class = "loginform">          
-                            
-                            </div>
                       
-                            <?php if ($is_invalid): ?>
-                                <em>Invalid login</em>
-                                <?php endif; ?>
-                       
-                            </div>
                        
                    
                 </div>
