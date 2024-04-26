@@ -2,7 +2,6 @@
 session_start();
 include 'functions.php';
 
-// Check if the user is logged in
 if (!isset($_SESSION['user_ID'])) {
     echo "Error: User not logged in";  // Plain text error message
     exit;

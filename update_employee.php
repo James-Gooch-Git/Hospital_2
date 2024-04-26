@@ -19,10 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header('Location: view_Employee.php');
          
     } else {
-        // Log error to browser console
         echo "<script>console.error('Error updating record:', " . json_encode($stmt->error) . ");</script>";
     
-        // Additionally, for debugging, log the parameters to the console
         echo "<script>console.log('Parameters:', " . json_encode([$fName, $lName, $contact_No, $email, $address, $userId]) . ");</script>";
     }
     $stmt->close();

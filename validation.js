@@ -57,7 +57,7 @@ validation
         document.getElementById("signup").submit();
     });
     
-    patient_validation
+patient_validation
  
     .addField("#patient_fName", [
         {

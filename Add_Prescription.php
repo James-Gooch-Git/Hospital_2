@@ -26,10 +26,9 @@ function fetchAll($mysqli, $query) {
     return $data;
 }
 
-// Redirect if ID not present
 $users = fetchAll($mysqli, "SELECT user_ID, CONCAT(fName, ' ', lName) AS fullName FROM Staff ORDER BY fName");
 
-// Check if the form was submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $selectedPatientID = $_POST['patient_ID'] ?? null;
     if (empty($selectedPatientID)) {

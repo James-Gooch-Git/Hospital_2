@@ -31,7 +31,6 @@ function enableEditE(userId) {
     document.getElementById('actionButtons_' + userId).style.display = 'none';
     document.getElementById('confirmButtons_' + userId).style.display = 'block';
     
-    // Hide the static text display
     var staticInfo = document.querySelectorAll('#employeeBox_' + userId + ' p');
     staticInfo.forEach(function(item) {
         item.style.display = 'none';
@@ -39,7 +38,6 @@ function enableEditE(userId) {
 }
 
 function confirmEditE(userId) {
-    // Assuming the form's ID is set to 'patientForm_' followed by the userID
     var form = document.querySelector('#employeeForm_' + userId);
     if (form) {
         form.submit();
@@ -50,12 +48,10 @@ function confirmEditE(userId) {
 
 
 function hideFormAfterUpdate() {
-    // Logic to hide the form, e.g. by hiding the 'editFields' div
     var editFields = document.querySelectorAll('div[id^="editFields_"]');
     editFields.forEach(function(editField) {
         editField.style.display = 'none';
     });
-    // Logic to show the 'employee-actions' div again
     var actionButtons = document.querySelectorAll('div[id^="actionButtons_"]');
     actionButtons.forEach(function(actionButton) {
         actionButton.style.display = 'block';
@@ -68,7 +64,6 @@ function cancelEditE(userId) {
     document.getElementById('actionButtons_' + userId).style.display = 'block';
     document.getElementById('confirmButtons_' + userId).style.display = 'none';
     
-    // Show the static text display again
     var staticInfo = document.querySelectorAll('#employeeBox_' + userId + ' p');
     staticInfo.forEach(function(item) {
         item.style.display = 'block';
@@ -77,10 +72,7 @@ function cancelEditE(userId) {
 
 function confirmDeleteE(userId) {
     if (confirm("Are you sure you want to delete this employee?")) {
-        // If confirmed, proceed with deletion
-        // Here you can either submit a form or make an AJAX call to delete the employee
 
-        // Example of making a form submission
         var form = document.createElement('form');
         document.body.appendChild(form);
         form.method = 'post';
@@ -98,10 +90,7 @@ function confirmDeleteE(userId) {
 
 function confirmDeleteB(availabilityId) {
     if (confirm("Are you sure you want to delete this booking?")) {
-        // If confirmed, proceed with deletion
-        // Here you can either submit a form or make an AJAX call to delete the employee
 
-        // Example of making a form submission
         var form = document.createElement('form');
         document.body.appendChild(form);
         form.method = 'post';
@@ -118,7 +107,6 @@ function confirmDeleteB(availabilityId) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Select all forms with the class 'update-form'
     var forms = document.querySelectorAll('.update-form');
 
     forms.forEach(function(form) {
@@ -133,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(response => response.text())
             .then(data => {
                 console.log("Success:", data);
-                // Optionally, you can log 'data' to the console if your PHP script echoes something back
             })
             .catch(error => {
                 console.error("Error:", error);
@@ -150,14 +137,12 @@ function enableEdit(patientId) {
     document.getElementById('actionButtons_' + patientId).style.display = 'none';
     document.getElementById('confirmButtons_' + patientId).style.display = 'block';
     
-    // Hide the static text display
     var staticInfo = document.querySelectorAll('#patientBox_' + patientId + ' p');
     staticInfo.forEach(function(item) {
         item.style.display = 'none';
     });
 }
 function confirmEdit(patientId) {
-    // Assuming the form's ID is set to 'patientForm_' followed by the userID
     var form = document.querySelector('#patientForm_' + patientId);
     if (form) {
         form.submit();
@@ -172,7 +157,6 @@ function cancelEditP(patientId) {
     document.getElementById('actionButtons_' + patientId).style.display = 'block';
     document.getElementById('confirmButtons_' + patientId).style.display = 'none';
     
-    // Show the static text display again
     var staticInfo = document.querySelectorAll('#patientBox_' + patientId + ' p');
     staticInfo.forEach(function(item) {
         item.style.display = 'block';
@@ -181,10 +165,7 @@ function cancelEditP(patientId) {
 
 function confirmDeleteP(patientId) {
     if (confirm("Are you sure you want to delete this patient?")) {
-        // If confirmed, proceed with deletion
-        // Here you can either submit a form or make an AJAX call to delete the employee
 
-        // Example of making a form submission
         var form = document.createElement('form');
         document.body.appendChild(form);
         form.method = 'post';
@@ -201,7 +182,6 @@ function confirmDeleteP(patientId) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Select all forms with the class 'update-form'
     var forms = document.querySelectorAll('.update-form');
 
     forms.forEach(function(form) {
@@ -216,7 +196,6 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(response => response.text())
             .then(data => {
                 console.log("Success:", data);
-                // Optionally, you can log 'data' to the console if your PHP script echoes something back
             })
             .catch(error => {
                 console.error("Error:", error);
@@ -225,25 +204,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// document.addEventListener("DOMContentLoaded", function() {
-//     document.getElementById("updateForm").addEventListener("submit", function(event) {
-//         event.preventDefault(); // Prevent the default form submission
-//         var formData = new FormData(this);
-
-//         fetch('update_patient.php', {
-//             method: 'POST',
-//             body: formData,
-//         })
-//         .then(response => response.text()) 
-//         .then(data => {
-//             console.log("Success:", data);
-//             // Optionally, you can log 'data' to the console if your PHP script echoes something back
-//         })
-//         .catch(error => {
-//             console.error("Error:", error);
-//         });
-//     });
-// });
 
 function setMinDate() {
     var today = new Date().toISOString().split('T')[0]; 
@@ -292,7 +252,6 @@ function saveEditU() {
 
 
 function cancelEditU() {
-    // Reset input values to original data
     document.querySelectorAll('input').forEach(input => {
         input.value = originalData[input.id];
         input.style.display = 'none';

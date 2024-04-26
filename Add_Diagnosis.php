@@ -3,23 +3,23 @@ include 'functions.php';
 $mysqli = require __DIR__ . "/database.php";
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-// Fetch users and patients for dropdowns
+
 function fetchAll($mysqli, $query) {
     $stmt = $mysqli->prepare($query);
     $stmt->execute();
     $result = $stmt->get_result();
     $data = $result->fetch_all(MYSQLI_ASSOC);
-    $stmt->close(); // Ensure statement is closed here
+    $stmt->close(); 
     return $data;
 }
 
-$selectedPatientID = isset($_GET['patient_ID']) ? $_GET['patient_ID'] : header("Location: error.php"); // Redirect if ID not present
+$selectedPatientID = isset($_GET['patient_ID']) ? $_GET['patient_ID'] : header("Location: error.php");
 
-// Fetch users and patients for dropdowns
+
 $users = fetchAll($mysqli, "SELECT user_ID, CONCAT(fName, ' ', lName) AS fullName FROM Staff ORDER BY fName");
 $patients = fetchAll($mysqli, "SELECT patient_ID, CONCAT(patient_fName, ' ', patient_lName) AS fullName FROM Patient ORDER BY patient_fName");
 
-// Check if the form was submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $selectedPatientID = $_POST['patient_ID'] ?? null;
     if (empty($selectedPatientID)) {

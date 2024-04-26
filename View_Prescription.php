@@ -5,19 +5,16 @@ include_once 'functions.php';
 
 $mysqli = require __DIR__ . "/database.php";
 
-// Check if a patient ID is provided
 $patientId = $_GET['patient_ID'] ?? null;
 if ($patientId === null) {
     echo "No patient selected.";
     exit;
 }
 
-// Database connection check
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
-// Prepare the statement with joins to fetch prescription data
 $query = "SELECT 
             Prescription.prescription_Id, 
             Prescription.medication_name, 
