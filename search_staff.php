@@ -7,7 +7,6 @@ $canEdit = isset($_SESSION["type_ID"]) && in_array($_SESSION["type_ID"], [1, 2, 
 
 $query = $_POST['query'] ?? '';
 
-// Sanitize the input for security
 $query = $mysqli->real_escape_string($query);
 
 
@@ -20,6 +19,7 @@ $result = $mysqli->query($sql);
 
 while ($employee = $result->fetch_assoc()) {
     echo "<div class='employee-box'>"; // Consider renaming this class to 'patient-box' for clarity
+                echo "<p>Employee Number: " . htmlspecialchars($employee['user_ID']) . "</p>";
                 echo "<p>First Name:" . htmlspecialchars($employee['fName']) . "</p>";
                 echo "<p>Last Name: " . htmlspecialchars($employee['lName']) . "</p>";
                 echo "<p>Contact Number: " . htmlspecialchars($employee['contact_No']) . "</p>";

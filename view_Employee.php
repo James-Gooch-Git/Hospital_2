@@ -5,7 +5,6 @@ $updateStatus = isset($_GET['update']) && $_GET['update'] === 'success';
 
 
 
-//$canEdit = isset($_SESSION["type_ID"]) && in_array($_SESSION["type_ID"], [1]);
 
 
 include 'functions.php';
@@ -34,10 +33,10 @@ include 'functions.php';
         $employees = getStaff();
         foreach ($employees as $employee) {
             echo "<form method='POST' action='update_employee.php' class='update-form' id='employeeForm_{$employee['user_ID']}'>";
-// All your input fields and other form content here
 
 
             echo "<div class='employee-box' id='employeeBox_{$employee['user_ID']}'>";
+            echo "<p>Employee Number: " . htmlspecialchars($employee['user_ID']) . "</p>";
             echo "<p>First Name:" . htmlspecialchars($employee['fName']) . "</p>";
             echo "<p>Last Name: " . htmlspecialchars($employee['lName']) . "</p>";
             echo "<p>Contact Number: " . htmlspecialchars($employee['contact_No']) . "</p>";

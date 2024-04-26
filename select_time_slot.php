@@ -1,21 +1,16 @@
 <?php
-// Include the database connection file
 $mysqli = require __DIR__ . "/database.php";
 
 $date = $_POST['date'];
 $user_id = $_POST['user_ID'];
 
-// Adjust your SQL to match the TimeSlot table structure
-// Assuming hour_block contains the time range as a string
 $sql = "SELECT ts.time_slot_ID, ts.hour_block, IFNULL(a.is_available, 1) AS is_available
         FROM TimeSlot ts
         LEFT JOIN Availability a ON ts.time_slot_ID = a.time_slot_id AND a.date = ?
         WHERE a.user_id = ? OR a.user_id IS NULL";
 
-// Prepare and execute the statement
 $stmt = $mysqli->prepare($sql);
 if (!$stmt) {
-    // Error handling: Prepare failed
     echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     exit;
 }
@@ -69,7 +64,6 @@ include_once 'functions.php';
        
     <script>
     function showStaffDropdown() {
-        // Display the staff dropdown when a date is selected
         var date = document.getElementById('date').value;
         if (date) {
             document.getElementById('staffSelection').style.display = 'block';
@@ -77,7 +71,6 @@ include_once 'functions.php';
     }
 
     function showTimeSlotDropdown() {
-        // Display the time slot dropdown when a staff member is selected
         var staff = document.getElementById('staff').value;
         if (staff) {
             document.getElementById('timeSlotSelection').style.display = 'block';

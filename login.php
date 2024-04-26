@@ -50,7 +50,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 <div class="login-box">
                     
-                        <!-- <h1>Log in</h1> -->
                         
                         <form method="post">
                             <div class = login-details>

@@ -1,14 +1,14 @@
 <?php
 
 function getStaff() {
-    // Database connection parameters
+   
     $host = "127.0.0.1";
     $port = 3306;
     $dbname = "mydb";
     $username = "root";
     $password = "Javg070796!?";
     
-    // Combine host and port into a single string
+   
     $hostWithPort = $host . ":" . $port;
     
     $conn= new mysqli($hostWithPort, $username, $password, $dbname);
@@ -17,37 +17,36 @@ function getStaff() {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // SQL query to fetch all records from employees table
+   
     $sql = "SELECT Staff.*, Staff_Type.type_description 
     FROM Staff
     INNER JOIN Staff_Type ON Staff.type_ID = Staff_Type.type_ID";
 
-    // Execute query
+  
     $result = $conn->query($sql);
 
     $arrayResult = array();
 
-    // Check if records exist
+  
     if ($result->num_rows > 0) {
-        // Fetch data row by row
+       
         while ($row = $result->fetch_assoc()) {
-            // Add each row to the result array
+           
             $arrayResult[] = $row;
         }
     }
 
-    // Close connection
     $conn->close();
 
-    // Return the result array
+    
     return $arrayResult;
 }
 
 function getDiagnosisForPatient($patientID) {
-    // Include the database connection file
-    $mysqli = require __DIR__ . '/database.php'; // Adjust the path as needed
+  
+    $mysqli = require __DIR__ . '/database.php'; 
 
-    // SQL query to fetch all diagnosis details for a given patient
+    
     $query = "SELECT 
                 Diagnosis.diagnosis_ID,
                 Diagnosis.diagnosis_name,
@@ -62,31 +61,30 @@ function getDiagnosisForPatient($patientID) {
               WHERE 
                 Diagnosis.patient_ID = ?";
 
-    // Prepare the SQL statement
+  
     $stmt = $mysqli->prepare($query);
     if (!$stmt) {
         die('Prepare failed: ' . $mysqli->error);
     }
 
-    // Bind the patient ID to the query
+    
     $stmt->bind_param('i', $patientID);
 
-    // Execute the query
+   
     $stmt->execute();
 
-    // Get the result set from the prepared statement
+   
     $result = $stmt->get_result();
     if ($result === false) {
         die('Execute failed: ' . $mysqli->error);
     }
 
-    // Fetch all rows as an associative array
     $diagnoses = $result->fetch_all(MYSQLI_ASSOC);
 
-    // Close the statement
+   
     $stmt->close();
 
-    // Close the database connection
+  
     $mysqli->close();
 
     return $diagnoses;
@@ -94,29 +92,28 @@ function getDiagnosisForPatient($patientID) {
 
 
 function getTypeID() {
-    // Database connection parameters
+  
     $mysqli = require __DIR__ . "/database.php";
-    // SQL query to fetch all records from employees table
+   
     $sql = "SELECT type_ID FROM Patient";
 
-    // Execute query
+    
     $result = $conn->query($sql);
 
     $arrayResult = array();
 
-    // Check if records exist
+  
     if ($result->num_rows > 0) {
-        // Fetch data row by row
+        
         while ($row = $result->fetch_assoc()) {
-            // Add each row to the result array
+           
             $arrayResult[] = $row;
         }
     }
 
-    // Close connection
     $conn->close();
 
-    // Return the result array
+   
     return $arrayResult;
 }
 
@@ -124,7 +121,7 @@ function getTypeID() {
 
 
 function getPrescriptionsForPatient($patientID) {
-    $mysqli = require __DIR__ . '/database.php'; // Adjust the path as needed
+    $mysqli = require __DIR__ . '/database.php'; 
     $query = "SELECT 
                 Prescription.prescription_Id,
                 Prescription.medication_name,
@@ -163,26 +160,25 @@ function getPrescriptionsForPatient($patientID) {
 function getPatientsDropdown() {
     $mysqli = require __DIR__ . "/database.php";
 
-    // Prepare a query to select patient ID and name from the Patients table
+ 
     $sql = "SELECT patient_ID, patient_fName, patient_lName FROM Patient ORDER BY patient_ID";
     $result = $mysqli->query($sql);
 
     if ($result === false) {
-        // Error handling if the query fails
+        
         die('Error fetching patients: ' . $mysqli->error);
     }
 
-    // Fetch all results as an associative array
+   
     $patients = $result->fetch_all(MYSQLI_ASSOC);
 
-    // Free result and return patients array
+   
     $result->free();
     return $patients;
 }
 
 
 function getPatients() {
-    // Database connection parameters
     $host = "127.0.0.1";
     $port = 3306;
     $dbname = "mydb";
@@ -198,27 +194,20 @@ function getPatients() {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // SQL query to fetch all records from employees table
     $sql = "SELECT * FROM Patient";
 
-    // Execute query
     $result = $conn->query($sql);
 
     $arrayResult = array();
 
-    // Check if records exist
     if ($result->num_rows > 0) {
-        // Fetch data row by row
         while ($row = $result->fetch_assoc()) {
-            // Add each row to the result array
             $arrayResult[] = $row;
         }
     }
 
-    // Close connection
     $conn->close();
 
-    // Return the result array
     return $arrayResult;
 }
 
@@ -249,59 +238,19 @@ function getUserDetails($userID) {
 }
 
 
-// function getPatientDetails($patientID) {
-//     // Database connection parameters
-//     $host = "127.0.0.1";
-//     $port = 3306;
-//     $dbname = "mydb";
-//     $username = "root";
-//     $password = "Javg070796!?";
-    
-//     // Combine host and port into a single string
-//     $hostWithPort = $host . ":" . $port;
-    
-//     $conn= new mysqli($hostWithPort, $username, $password, $dbname);
-    
-//     if ($conn->connect_error) {
-//         die("Connection failed: " . $conn->connect_error);
-//     }
 
-//     // SQL query to fetch all records from employees table
-//     $sql = "SELECT * FROM Patient WHERE patient_ID = ?";
-
-//     // Execute query
-//     $result = $conn->query($sql);
-
-//     $arrayResult = array();
-
-//     // Check if records exist
-//     if ($result->num_rows > 0) {
-//         // Fetch data row by row
-//         while ($row = $result->fetch_assoc()) {
-//             // Add each row to the result array
-//             $arrayResult[] = $row;
-//         }
-//     }
-
-//     // Close connection
-//     $conn->close();
-
-//     // Return the result array
-//     return $arrayResult;
-// }
 
 
 
 
 function getAvailability() {
-    // Database connection parameters
     $host = "127.0.0.1";
     $port = 3306;
     $dbname = "mydb";
     $username = "root";
     $password = "Javg070796!?";
     
-    // Combine host and port into a single string
+
     $hostWithPort = $host . ":" . $port;
     
     $conn= new mysqli($hostWithPort, $username, $password, $dbname);
@@ -310,7 +259,6 @@ function getAvailability() {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // SQL query to fetch all records from employees table
     $sql = "SELECT Availability.*, 
                 CONCAT(Staff.fName, ' ', Staff.lName) AS consultantName, 
                 TimeSlot.hour_block AS timeSlotHourBlock,
@@ -327,36 +275,28 @@ function getAvailability() {
             JOIN TimeSlot ON Availability.time_slot_ID = TimeSlot.time_slot_ID
             LEFT JOIN Patient ON Availability.patient_ID = Patient.patient_ID";
 
-    // Execute query
     $result = $conn->query($sql);
 
     $arrayResult = array();
 
-    // Check if records exist
     if ($result->num_rows > 0) {
-        // Fetch data row by row
         while ($row = $result->fetch_assoc()) {
-            // Add each row to the result array
             $arrayResult[] = $row;
         }
     }
 
-    // Close connection
     $conn->close();
 
-    // Return the result array
     return $arrayResult;
 }
 
 function getDiagnosis() {
-    // Database connection parameters
     $host = "127.0.0.1";
     $port = 3306;
     $dbname = "mydb";
     $username = "root";
     $password = "Javg070796!?";
     
-    // Combine host and port into a single string
     $hostWithPort = $host . ":" . $port;
     
     $conn= new mysqli($hostWithPort, $username, $password, $dbname);
@@ -365,7 +305,6 @@ function getDiagnosis() {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // SQL query to fetch all records from employees table
     $sql = "SELECT 
                 Diagnosis.diagnosis_ID,
                 Diagnosis.diagnosis_name,
@@ -379,23 +318,17 @@ function getDiagnosis() {
                 Patient ON Diagnosis.patient_ID = Patient.patient_ID;
             ";
 
-    // Execute query
     $result = $conn->query($sql);
 
     $arrayResult = array();
 
-    // Check if records exist
     if ($result->num_rows > 0) {
-        // Fetch data row by row
         while ($row = $result->fetch_assoc()) {
-            // Add each row to the result array
             $arrayResult[] = $row;
         }
     }
 
-    // Close connection
     $conn->close();
 
-    // Return the result array
     return $arrayResult;
 }

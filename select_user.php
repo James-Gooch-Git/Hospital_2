@@ -1,19 +1,11 @@
 
 <?php
 
-// Include the database connection file
 $mysqli = require __DIR__ . "/database.php";
 
-// // Retrieve the selected date from the form submission
 
 $date = $_POST['date'];
-// // Prepare the SQL statement to select all staff members
-// $sql = "SELECT user_ID, fName, lName, type_ID FROM Staff";
-// $stmt = $mysqli->prepare($sql);
 
-// // Execute the query
-// $stmt->execute();
-// $result = $stmt->get_result();
 
 
 include 'functions.php'; 
@@ -69,7 +61,6 @@ $staffMembers = GetStaff();
 
     <script>
     function showStaffDropdown() {
-        // Display the staff dropdown when a date is selected
         var date = document.getElementById('date').value;
         if (date) {
             document.getElementById('staffSelection').style.display = 'block';
@@ -77,7 +68,6 @@ $staffMembers = GetStaff();
     }
 
     function showTimeSlotDropdown() {
-        // Display the time slot dropdown when a staff member is selected
         var staff = document.getElementById('staff').value;
         if (staff) {
             document.getElementById('timeSlotSelection').style.display = 'block';

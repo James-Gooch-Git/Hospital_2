@@ -2,7 +2,6 @@
 session_start();
 include 'functions.php'; 
 
-// Check if the user is logged in and has a user ID set
 if (!isset($_SESSION['user_ID'])) {
     header("Location: login.php");
     exit;
@@ -16,7 +15,6 @@ if (!$user) {
 
 
 
-//$canEdit = isset($_SESSION["type_ID"]) && in_array($_SESSION["type_ID"], [1]);
 $canEdit = true;
 
 

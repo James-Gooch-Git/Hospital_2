@@ -72,16 +72,12 @@ try {
       </script>";
        exit;
     } else {
-        // This else block might not be necessary if exceptions are thrown for errors,
-        // but it's here for completeness.
         echo "An error occurred. " . $stmt->error;
     }
 } catch (mysqli_sql_exception $e) {
-    // If the error code is 1062, handle the duplicate entry case.
     if ($e->getCode() === 1062) {
         die("Email already taken.");
     } else {
-        // For all other SQL errors, print the error message and code.
         die("An error occurred: " . $e->getMessage() . " Error number: " . $e->getCode());
     }
 }

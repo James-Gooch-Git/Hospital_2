@@ -26,7 +26,6 @@
     </aside>
 
     <main class="content">
-        <!-- Your main content goes here -->
     </main>
 </div>
 

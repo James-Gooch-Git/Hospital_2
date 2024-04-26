@@ -1,7 +1,6 @@
 <?php
 include_once 'functions.php';
 
-// Assuming getPatients is a function that fetches patient data as an array of ['patient_id' => x, 'patient_name' => y]
 $patients = getPatientsDropdown();
 
 $Availabilities = getAvailability();

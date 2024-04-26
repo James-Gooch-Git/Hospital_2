@@ -1,10 +1,7 @@
 <?php
 session_start();
 
-// Assuming the logged-in user's type_ID is stored in the session
 
-//$canEdit = isset($_SESSION["type_ID"]) && in_array($_SESSION["type_ID"], [1]);
-// $canEdit = true;
 
 include 'functions.php';
 ?>
@@ -15,8 +12,9 @@ include 'functions.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Patients</title>
-    <link rel="stylesheet" href="style.css"> <!-- Make sure your CSS file is linked here -->
+    <link rel="stylesheet" href="style.css"> 
     <script src="JSFunctions.js" defer></script>
+    <script src="/SignUp/JS/validation.js" defer></script>
 </head>
 <body>
 
@@ -42,6 +40,7 @@ include 'functions.php';
             foreach ($patients as $patient) {
                 echo "<form method='POST' action='update_patient.php' class='update-form' id='patientForm_{$patient['patient_ID']}'>";
                 echo "<div class='patient-box' id='patientBox_{$patient['patient_ID']}'>";
+                echo "<p>Hospital Number: " . htmlspecialchars($patient['patient_ID']) . "</p>";
                 echo "<p>First Name:" . htmlspecialchars($patient['patient_fName']) . "</p>";
                 echo "<p>Last Name: " . htmlspecialchars($patient['patient_lName']) . "</p>";
                 echo "<p>Contact Number: " . htmlspecialchars($patient['patient_ContactNO']) . "</p>";
